@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Aurora | My Little Universe</title>
+
+    <link rel="stylesheet" href="C:\Users\Bhargav Yadav\OneDrive\love\tinking\my world .css">
+</head>
+
+<body>
+
+<!-- 🌌 AURORA Welcome Screen -->
+
+<div id="welcomeScreen" class="welcome-screen">
+
+    <div class="welcome-stars">✦ ✧ ✦ ✧ ✦</div>
+
+    <h1>PROJECT AURORA</h1>
+
+    <p>Somewhere between dreams and stars, your universe awaits.</p>
+
+    <button id="enterUniverse">🚀 Enter My Universe</button>
+
+    <div class="welcome-footer">A little universe of endless possibilities 💜</div>
+
+</div>
+<main class="universe" id="universe">
+
+    <!-- Floating Moon -->
+    <div class="moon">🌙</div>
+    <!-- Floating Planets -->
+<div class="planet-container">
+
+    <div class="planet planet-one"
+         data-title="WELCOME TO LUNA 🌙"
+         data-message="A peaceful world where your dreams shine like stars. ✨">
+        🪐
+        <span class="planet-label">Luna</span>
+    </div>
+
+    <div class="planet planet-two"
+         data-title="WELCOME TO NOVA 🌎"
+         data-message="A new world awaits you. Every star holds a dream, and every dream begins with you. 💜">
+        🌎
+        <span class="planet-label">Nova</span>
+    </div>
+
+    <div class="planet planet-three"
+         data-title="WELCOME TO COSMOS 💜"
+         data-message="You are made of stardust, courage, and endless possibilities. Keep shining! 🌌">
+        🪐
+        <span class="planet-label">Cosmos</span>
+    </div>
+
+</div>
+
+<div id="planetMessage" class="planet-message-box">
+    <h2 id="planetTitle"></h2>
+    <p id="planetDescription"></p>
+</div>
+<!-- 🎵 AURORA Music Player -->
+
+<div class="music-player">
+
+    <h2>🎹 AURORA MELODIES</h2>
+
+    <p>Relax your mind beneath the stars 🌙</p>
+
+    <div id="musicStatus">Ready to relax? 💜</div>
+
+    <button id="playMusic">▶ Play Music</button>
+
+    <div class="volume-control">
+        <label for="musicVolume">🔊 Volume</label>
+        <input
+            type="range"
+            id="musicVolume"
+            min="0"
+            max="100"
+            value="30"
+        >
+    </div>
+
+</div>
+
+</div>
+
+<p id="planetMessage"></p>
+
+    <!-- Main Heading -->
+    <h1>Welcome to Aurora</h1>
+
+    <p class="subtitle">
+        A little universe created by you.
+    </p>
+
+    <!-- Interactive Button -->
+    <button id="magicButton">
+        Discover the Magic ✨
+    </button>
+
+    <!-- Magical Message -->
+    <p id="message"></p>
+    <!-- Secret Message Portal -->
+<button id="portalButton">✨ Open Secret Portal ✨</button>
+
+<div id="secretPortal" class="portal">
+    <div class="portal-content">
+        <button id="closePortal" class="close-button">×</button>
+
+        <h2>A Little Secret 💜</h2>
+
+        <p id="secretMessage"></p>
+    </div>
+</div>
+
+</main>
+
+<script src="C:\Users\Bhargav Yadav\OneDrive\love\tinking\my world .js"></script>
+
+<!-- Secret Star Surprise -->
+<div class="secret-star-container">
+    <button id="secretStar" aria-label="Reveal the secret surprise">
+        ✨
+    </button>
+    <p>A special star is waiting for you...</p>
+</div>
+
+<div id="surpriseBox" class="surprise-box">
+    <button id="closeSurprise" class="close-surprise">✖</button>
+
+    <div class="surprise-star">🌟</div>
+
+    <h2>A Little Secret from the Universe 💜</h2>
+
+    <p id="surpriseMessage">
+        Even the smallest star can light up the darkest universe.
+    </p>
+
+    <p class="surprise-footer">You found the hidden magic! ✨</p>
+</div>
+<!-- Aurora Day and Night Switch -->
+<button id="auroraModeSwitch" type="button" aria-pressed="false">
+    ☀️ Day Mode
+</button>
+<!-- PROJECT AURORA - Sunset Mode Button -->
+<button id="auroraSunsetSwitch" type="button" aria-pressed="false">
+    🌇 Sunset Mode
+</button>
+
+</body>
+</html>
+

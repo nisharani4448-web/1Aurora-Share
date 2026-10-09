@@ -1,0 +1,1643 @@
+/* ===== BASIC SETTINGS ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+/* ===== PAGE BACKGROUND ===== */
+
+body {
+font-family: Arial, sans-serif;
+background: #080519;
+color: white;
+}
+
+/* ===== GALAXY UNIVERSE ===== */
+
+.universe {
+min-height: 100vh;
+width: 100%;
+position: relative;
+overflow: hidden;
+
+```
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+text-align: center;
+padding: 20px;
+
+background:
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(112, 49, 180, 0.35),
+        transparent 35%
+    ),
+    radial-gradient(
+        circle at 80% 70%,
+        rgba(69, 30, 130, 0.4),
+        transparent 40%
+    ),
+    linear-gradient(
+        135deg,
+        #080519,
+        #170a32,
+        #05030d
+    );
+```
+
+}
+
+/* ===== FLOATING MOON ===== */
+
+.moon {
+font-size: 75px;
+margin-bottom: 20px;
+
+```
+filter: drop-shadow(0 0 20px #c6a0ff);
+
+animation: floatMoon 3s ease-in-out infinite;
+
+cursor: pointer;
+z-index: 2;
+```
+
+}
+
+@keyframes floatMoon {
+0%, 100% {
+transform: translateY(0);
+}
+
+```
+50% {
+    transform: translateY(-15px);
+}
+```
+
+}
+
+/* ===== MAIN HEADING ===== */
+
+h1 {
+font-size: clamp(2rem, 6vw, 4rem);
+
+```
+color: #e4caff;
+
+text-shadow:
+    0 0 10px #9d5cff,
+    0 0 25px #7535c5;
+
+margin-bottom: 15px;
+
+z-index: 2;
+```
+
+}
+
+/* ===== SUBTITLE ===== */
+
+.subtitle {
+color: #cbbce9;
+font-size: 1.1rem;
+
+```
+margin-bottom: 30px;
+
+z-index: 2;
+```
+
+}
+
+/* ===== MAGIC BUTTON ===== */
+
+button {
+background: linear-gradient(
+135deg,
+#a66cff,
+#7740c9
+);
+
+```
+color: white;
+
+border: 1px solid #d6b5ff;
+padding: 14px 25px;
+
+border-radius: 30px;
+font-size: 1rem;
+
+cursor: pointer;
+
+box-shadow: 0 0 20px #8950ff;
+
+transition: all 0.3s ease;
+
+z-index: 2;
+```
+
+}
+
+button:hover {
+transform: scale(1.08);
+
+```
+box-shadow: 0 0 35px #b58aff;
+```
+
+}
+
+/* ===== MESSAGE ===== */
+
+#message {
+margin-top: 25px;
+
+```
+color: #e4caff;
+font-size: 1.1rem;
+line-height: 1.7;
+
+max-width: 500px;
+min-height: 30px;
+
+z-index: 2;
+```
+
+}
+
+/* ===== TWINKLING STARS ===== */
+
+.star {
+position: absolute;
+
+```
+color: white;
+font-size: 12px;
+
+pointer-events: none;
+
+text-shadow:
+    0 0 8px white,
+    0 0 15px #bd91ff;
+
+animation: twinkle 2s ease-in-out infinite alternate;
+```
+
+}
+
+@keyframes twinkle {
+from {
+opacity: 0.25;
+transform: scale(0.7);
+}
+
+```
+to {
+    opacity: 1;
+    transform: scale(1.3);
+}
+```
+
+}
+
+/* ===== SHOOTING STARS ===== */
+
+.shooting-star {
+position: absolute;
+
+```
+width: 140px;
+height: 3px;
+
+background: linear-gradient(
+    90deg,
+    white,
+    #d8b4ff,
+    transparent
+);
+
+border-radius: 50%;
+
+box-shadow:
+    0 0 8px white,
+    0 0 15px #bd91ff;
+
+pointer-events: none;
+
+z-index: 1;
+
+animation: shootingStar 1.5s linear forwards;
+```
+
+}
+
+@keyframes shootingStar {
+0% {
+transform: translate(0, 0) rotate(-35deg);
+opacity: 1;
+}
+
+```
+100% {
+    transform: translate(-350px, 220px) rotate(-35deg);
+    opacity: 0;
+}
+```
+
+}
+
+/* ===== SMALL SCREENS ===== */
+
+@media (max-width: 600px) {
+.moon {
+font-size: 60px;
+}
+
+```
+.subtitle {
+    font-size: 1rem;
+}
+
+button {
+    font-size: 0.9rem;
+}
+```
+
+}
+/* Secret Portal Button */
+
+#portalButton {
+    margin-top: 25px;
+    background: linear-gradient(135deg, #a66cff, #54249c);
+    color: white;
+    border: 1px solid #d8b4ff;
+    padding: 14px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #a66cff;
+    transition: 0.3s;
+    z-index: 5;
+}
+
+#portalButton:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #d8b4ff;
+}
+
+/* Portal Background */
+
+.portal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 3, 20, 0.88);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+/* Show Portal */
+
+.portal.active {
+    display: flex;
+}
+
+/* Portal Box */
+
+.portal-content {
+    position: relative;
+    max-width: 450px;
+    width: 100%;
+    padding: 40px 25px;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #251044, #100820);
+    border: 1px solid #bd91ff;
+    border-radius: 20px;
+    box-shadow: 0 0 40px #8950ff;
+    animation: portalAppear 0.5s ease;
+}
+
+.portal-content h2 {
+    color: #e4caff;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px #a66cff;
+}
+
+#secretMessage {
+    color: #e8dcff;
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100px;
+}
+
+/* Close Button */
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: none;
+    padding: 5px 10px;
+}
+
+.close-button:hover {
+    transform: scale(1.15);
+}
+
+/* Portal Animation */
+
+@keyframes portalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}/* ===== FLOATING PLANETS ===== */
+
+.planet-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    flex-wrap: wrap;
+    margin: 25px 0;
+    z-index: 5;
+}
+
+.planet {
+    position: relative;
+    font-size: 48px;
+    cursor: pointer;
+    user-select: none;
+    animation: floatPlanet 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 12px #bd91ff);
+}
+
+.planet-one {
+    animation-delay: 0s;
+}
+
+.planet-two {
+    animation-delay: 0.7s;
+}
+
+.planet-three {
+    animation-delay: 1.4s;
+}
+
+.planet:hover {
+    transform: scale(1.3);
+    filter: drop-shadow(0 0 22px #e4caff);
+}
+
+@keyframes floatPlanet {
+    0%, 100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -15px;
+    }
+}
+
+/* Planet Names */
+
+.planet-label {
+    display: block;
+    font-size: 12px;
+    color: #e4caff;
+    text-align: center;
+    margin-top: 8px;
+    letter-spacing: 2px;
+}
+
+/* Planet Message */
+
+#planetMessage {
+    color: #e4caff;
+    font-size: 16px;
+    text-align: center;
+    min-height: 25px;
+    margin-top: 5px;
+    text-shadow: 0 0 10px #a66cff;
+    z-index: 5;
+}
+
+@media (max-width: 600px) {
+    .planet-container {
+        gap: 25px;
+    }
+
+    .planet {
+        font-size: 38px;
+    }
+}
+/* ✨ PROFESSIONAL AURORA DESIGN */
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Glowing main heading */
+h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    letter-spacing: 5px;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #d8b4fe,
+        #a5f3fc,
+        #ffffff
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: auroraGlow 4s linear infinite;
+}
+
+/* Smooth glowing animation */
+@keyframes auroraGlow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Stylish subtitle */
+p {
+    line-height: 1.8;
+}
+
+/* Beautiful buttons */
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    background: rgba(180, 130, 255, 0.2);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: rgba(200, 160, 255, 0.4);
+    box-shadow: 0 0 25px #c084fc;
+    transform: translateY(-3px);
+}
+
+/* Planet message appearance */
+#planetMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #e9d5ff;
+    text-shadow: 0 0 12px #c084fc;
+}
+/* ✨ Magical Planet Message Box */
+
+.planet-message-box {
+    width: min(85%, 500px);
+    margin: 30px auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: rgba(35, 20, 75, 0.65);
+    border: 1px solid rgba(216, 180, 254, 0.6);
+    border-radius: 20px;
+
+    box-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
+
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.planet-message-box.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.planet-message-box h2 {
+    color: #e9d5ff;
+    text-shadow: 0 0 12px #c084fc;
+    font-size: 22px;
+}
+
+.planet-message-box p {
+    color: #f3e8ff;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.planet {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.planet:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 15px #d8b4fe);
+}
+/* ✨ Magical Mouse Trail */
+
+.mouse-star {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+
+    color: #e9d5ff;
+    font-size: 14px;
+
+    text-shadow: 0 0 10px #c084fc;
+
+    animation: starFade 0.8s ease-out forwards;
+}
+
+@keyframes starFade {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(180deg);
+    }
+}
+/* 🎹 AURORA Music Player */
+
+.music-player {
+    width: min(85%, 400px);
+    margin: 35px auto;
+    padding: 25px;
+    box-sizing: border-box;
+
+    text-align: center;
+    color: white;
+
+    background: rgba(35, 20, 75, 0.75);
+    border: 1px solid rgba(216, 180, 254, 0.6);
+    border-radius: 25px;
+
+    box-shadow: 0 0 25px rgba(192, 132, 252, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+.music-player h2 {
+    color: #e9d5ff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 12px #c084fc;
+}
+
+#musicStatus {
+    margin: 20px 0;
+    color: #e9d5ff;
+}
+
+.volume-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#musicVolume {
+    width: 120px;
+    accent-color: #c084fc;
+}
+/* 🌌 AURORA Welcome Screen */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+
+    background:
+        radial-gradient(ellipse at top, #35205e, transparent 65%),
+        linear-gradient(135deg, #08051c, #170b35, #09051b);
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.welcome-screen h1 {
+    font-size: clamp(2rem, 7vw, 4.5rem);
+    letter-spacing: 5px;
+    margin: 10px 0;
+
+    animation: welcomeGlow 3s ease-in-out infinite alternate;
+}
+
+.welcome-screen p {
+    max-width: 500px;
+    color: #e9d5ff;
+    line-height: 1.8;
+}
+
+.welcome-stars {
+    color: #e9d5ff;
+    font-size: 30px;
+    letter-spacing: 12px;
+
+    animation: starFloat 3s ease-in-out infinite alternate;
+}
+
+.welcome-footer {
+    margin-top: 20px;
+    color: #c4b5fd;
+    font-size: 13px;
+}
+
+.welcome-screen.leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@keyframes welcomeGlow {
+    from {
+        filter: drop-shadow(0 0 5px #a855f7);
+    }
+
+    to {
+        filter: drop-shadow(0 0 25px #c084fc);
+    }
+}
+
+@keyframes starFloat {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-12px);
+    }
+}
+/* Secret Star Surprise */
+.secret-star-container {
+    text-align: center;
+    margin: 40px auto;
+    position: relative;
+    z-index: 2;
+}
+
+#secretStar {
+    background: transparent;
+    border: none;
+    font-size: 48px;
+    cursor: pointer;
+    animation: secretStarGlow 2s infinite alternate;
+    transition: transform 0.4s ease;
+}
+
+#secretStar:hover {
+    transform: scale(1.4) rotate(20deg);
+}
+
+.secret-star-container p {
+    color: #e9d5ff;
+    font-size: 14px;
+}
+
+@keyframes secretStarGlow {
+    from {
+        filter: drop-shadow(0 0 5px #a855f7);
+    }
+    to {
+        filter: drop-shadow(0 0 25px #f0abfc);
+    }
+}
+
+/* Hidden surprise box */
+.surprise-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(85%, 400px);
+    padding: 30px 22px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    background: linear-gradient(145deg, #241044, #100827);
+    border: 1px solid #d8b4fe;
+    border-radius: 22px;
+    box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+    z-index: 10001;
+    animation: surpriseAppear 0.6s ease;
+}
+
+.surprise-box.show {
+    display: block;
+}
+
+.close-surprise {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.surprise-star {
+    font-size: 55px;
+    animation: secretStarGlow 1.5s infinite alternate;
+}
+
+.surprise-box h2 {
+    color: #e9d5ff;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.surprise-box #surpriseMessage {
+    line-height: 1.8;
+    color: #f5eaff;
+}
+
+.surprise-footer {
+    color: #c4b5fd;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+@keyframes surpriseAppear {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%) scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+/* PROJECT AURORA - Magical Star Sparkles */
+
+.star-particle {
+    position: fixed;
+    z-index: 10002;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+
+    pointer-events: none;
+    user-select: none;
+
+    font-size: 20px;
+    filter: drop-shadow(0 0 8px currentColor);
+    will-change: transform, opacity;
+}
+/* PROJECT AURORA - Magical Planet Effects */
+
+.planet-magic-glow {
+    filter: brightness(1.4) drop-shadow(0 0 15px #c084fc) !important;
+    transition: filter 0.3s ease;
+}
+
+/* Expanding energy ring */
+.planet-pulse-ring {
+    position: fixed;
+    z-index: 10000;
+    pointer-events: none;
+    border: 2px solid #c084fc;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #a855f7;
+
+    transform: translate(-50%, -50%) scale(0.3);
+    animation: planetEnergyPulse 750ms ease-out forwards;
+}
+
+@keyframes planetEnergyPulse {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.3);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+/* Tiny stars released by planets */
+.planet-particle {
+    position: fixed;
+    z-index: 10001;
+    pointer-events: none;
+    user-select: none;
+    font-size: 18px;
+    filter: drop-shadow(0 0 6px currentColor);
+}
+/* PROJECT AURORA - 3D Galaxy Effect */
+
+/* Keep the galaxy stars behind the website content */
+body {
+    isolation: isolate;
+}
+
+/* Moving background star layer */
+#auroraParallaxLayer {
+    position: fixed;
+    inset: -20px;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.7;
+    translate: 0 0;
+    transition: translate 180ms ease-out;
+    will-change: translate;
+}
+
+/* Individual stars */
+.aurora-depth-star {
+    position: absolute;
+    display: block;
+    color: #ffffff;
+    line-height: 1;
+    user-select: none;
+    text-shadow: 0 0 8px #c084fc;
+    animation: auroraDepthTwinkle 3s ease-in-out infinite alternate;
+}
+
+/* Gentle twinkling */
+@keyframes auroraDepthTwinkle {
+    from {
+        opacity: 0.35;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Smooth movement for planets */
+.planet-mouse-depth {
+    transition: translate 250ms ease-out;
+    will-change: translate;
+}
+/* PROJECT AURORA - Day and Night Switch */
+
+#auroraModeSwitch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9990;
+
+    padding: 12px 18px;
+    border: 1px solid rgba(216, 180, 254, 0.8);
+    border-radius: 30px;
+
+    background: rgba(35, 18, 65, 0.9);
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+#auroraModeSwitch:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #c084fc;
+}
+
+/* Alternative celestial colour theme */
+
+body.aurora-day-mode {
+    background: linear-gradient(
+        135deg,
+        #14345a,
+        #285b83,
+        #625786
+    ) !important;
+
+    transition: background 0.6s ease;
+}
+
+/* Make the background stars softer in Day Mode */
+
+body.aurora-day-mode #auroraParallaxLayer {
+    opacity: 0.35;
+}
+
+body.aurora-day-mode #auroraModeSwitch {
+    background: rgba(35, 61, 100, 0.95);
+    border-color: #bfdbfe;
+}
+/* PROJECT AURORA - Complete Day Mode Background */
+
+body.aurora-day-mode .universe {
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(147, 197, 253, 0.55),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(191, 219, 254, 0.45),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #b8e1ff,
+            #dbeafe,
+            #e9d5ff
+        ) !important;
+}
+/* ======================================
+   PROJECT AURORA - DAY MODE UPGRADE
+   Clouds, star removal, and new font colors
+   ====================================== */
+
+
+/* ☀️ DAY MODE: Blue sky with soft clouds */
+
+body.aurora-day-mode .universe {
+    background:
+        /* First cloud */
+        radial-gradient(
+            ellipse 150px 45px at 14% 28%,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.75) 45%,
+            transparent 78%
+        ),
+
+        radial-gradient(
+            ellipse 90px 35px at 20% 25%,
+            rgba(255, 255, 255, 0.9) 0%,
+            transparent 75%
+        ),
+
+        /* Second cloud */
+        radial-gradient(
+            ellipse 170px 48px at 78% 43%,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.65) 48%,
+            transparent 78%
+        ),
+
+        radial-gradient(
+            ellipse 100px 35px at 85% 39%,
+            rgba(255, 255, 255, 0.85) 0%,
+            transparent 75%
+        ),
+
+        /* Third cloud */
+        radial-gradient(
+            ellipse 160px 42px at 43% 76%,
+            rgba(255, 255, 255, 0.8) 0%,
+            transparent 78%
+        ),
+
+        /* Blue sky */
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(147, 197, 253, 0.55),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            135deg,
+            #9dd8ff,
+            #c5e8ff,
+            #e0d7ff
+        ) !important;
+
+    color: #234568 !important;
+}
+
+
+/* ⭐ Hide the generated stars during Day Mode */
+
+body.aurora-day-mode #auroraParallaxLayer,
+body.aurora-day-mode .aurora-depth-star,
+body.aurora-day-mode .mouse-star,
+body.aurora-day-mode .star-particle,
+body.aurora-day-mode .shooting-star,
+body.aurora-day-mode .shootingStar,
+body.aurora-day-mode .twinkling-star,
+body.aurora-day-mode .twinkling-stars,
+body.aurora-day-mode .star {
+    display: none !important;
+}
+
+
+/* 💙 Change heading colors */
+
+body.aurora-day-mode .universe h1,
+body.aurora-day-mode .universe h2,
+body.aurora-day-mode .universe h3,
+body.aurora-day-mode h1,
+body.aurora-day-mode h2,
+body.aurora-day-mode h3 {
+    color: #174574 !important;
+
+    text-shadow:
+        0 1px 3px rgba(255, 255, 255, 0.65),
+        0 0 12px rgba(255, 255, 255, 0.4) !important;
+}
+
+
+/* 🩵 Change paragraph and message colors */
+
+body.aurora-day-mode .universe p,
+body.aurora-day-mode p,
+body.aurora-day-mode li,
+body.aurora-day-mode label,
+body.aurora-day-mode .subtitle {
+    color: #294e70 !important;
+}
+
+
+/* 💜 Give website buttons a daytime appearance */
+
+body.aurora-day-mode .universe button {
+    color: #21466b !important;
+
+    border-color: rgba(66, 119, 170, 0.5);
+
+    box-shadow:
+        0 3px 12px rgba(67, 117, 160, 0.18);
+}
+
+
+/* 🌤️ Day Mode button */
+
+body.aurora-day-mode #auroraModeSwitch {
+    background: #eaf6ff !important;
+    color: #21466b !important;
+    border: 1px solid #8abde8 !important;
+}
+
+
+/* 🌙 Smooth transition between the themes */
+
+body.aurora-day-mode .universe {
+    transition: background 0.6s ease,
+                color 0.6s ease;
+}
+/* =================================
+   PROJECT AURORA - MOVING CLOUDS
+   ================================= */
+
+/* Keep the sky effects behind the website content */
+.universe {
+    isolation: isolate;
+}
+
+#auroraDaySkyEffects {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.8s ease,
+                visibility 0.8s ease;
+}
+
+/* Show the clouds and sun only in Day Mode */
+body.aurora-day-mode #auroraDaySkyEffects {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ☀️ Glowing sun */
+.aurora-sun {
+    position: absolute;
+    top: 65px;
+    right: 65px;
+
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle at 35% 35%,
+        #fffde7,
+        #ffe082 45%,
+        #ffb74d 100%
+    );
+
+    box-shadow:
+        0 0 25px rgba(255, 213, 79, 0.8),
+        0 0 60px rgba(255, 193, 7, 0.35);
+
+    animation: auroraSunGlow 4s ease-in-out infinite alternate;
+}
+
+/* ☁️ Cloud shapes */
+.aurora-cloud {
+    position: absolute;
+
+    width: 155px;
+    height: 42px;
+
+    border-radius: 50px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #f0f8ff
+    );
+
+    opacity: 0.9;
+
+    filter: drop-shadow(
+        0 5px 8px rgba(65, 125, 170, 0.12)
+    );
+
+    will-change: transform;
+
+    animation: auroraCloudDrift 35s linear infinite;
+}
+
+/* The fluffy top-left part of each cloud */
+.aurora-cloud::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 65px;
+
+    left: 22px;
+    top: -30px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+}
+
+/* The fluffy top-right part of each cloud */
+.aurora-cloud::after {
+    content: "";
+
+    position: absolute;
+
+    width: 85px;
+    height: 82px;
+
+    right: 18px;
+    top: -43px;
+
+    border-radius: 50%;
+
+    background: #f8fcff;
+}
+
+/* Different cloud positions */
+.aurora-cloud.cloud-one {
+    top: 25%;
+    left: -190px;
+    animation-duration: 38s;
+}
+
+.aurora-cloud.cloud-two {
+    top: 48%;
+    left: -190px;
+    transform: scale(0.75);
+    animation-duration: 52s;
+    animation-delay: -20s;
+}
+
+.aurora-cloud.cloud-three {
+    top: 70%;
+    left: -190px;
+    transform: scale(0.9);
+    animation-duration: 45s;
+    animation-delay: -12s;
+}
+
+/* Clouds travel across the sky */
+@keyframes auroraCloudDrift {
+    from {
+        translate: 0 0;
+    }
+
+    to {
+        translate: calc(100vw + 400px) 0;
+    }
+}
+
+/* Sun gently becomes brighter and softer */
+@keyframes auroraSunGlow {
+    from {
+        filter: brightness(0.95);
+        box-shadow:
+            0 0 20px rgba(255, 213, 79, 0.6),
+            0 0 40px rgba(255, 193, 7, 0.25);
+    }
+
+    to {
+        filter: brightness(1.08);
+        box-shadow:
+            0 0 30px rgba(255, 213, 79, 0.9),
+            0 0 65px rgba(255, 193, 7, 0.4);
+    }
+}
+
+/* Respect devices that request reduced animation */
+@media (prefers-reduced-motion: reduce) {
+    .aurora-sun,
+    .aurora-cloud {
+        animation: none;
+    }
+}
+/* PROJECT AURORA - Moon transforms into a glowing sun */
+
+body.aurora-day-mode .moon {
+    filter:
+        drop-shadow(0 0 10px #ffe082)
+        drop-shadow(0 0 25px #ffca28);
+
+    transition: filter 0.5s ease;
+}
+
+/* Use the existing moon as the sun instead of showing two suns */
+body.aurora-day-mode .aurora-sun {
+    display: none !important;
+}
+/* PROJECT AURORA - Sunrise and Sunset Transition */
+
+#auroraSkyTransition {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0;
+
+    background: linear-gradient(
+        135deg,
+        #8bd3ff,
+        #dbeafe,
+        #e9d5ff
+    );
+
+    clip-path: circle(0% at 50% 50%);
+}
+
+/* Expanding transition effect */
+#auroraSkyTransition.active {
+    animation: auroraSkyWipe 1.4s ease-in-out forwards;
+}
+
+@keyframes auroraSkyWipe {
+    0% {
+        clip-path: circle(0% at 50% 50%);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    65% {
+        opacity: 0.65;
+    }
+
+    100% {
+        clip-path: circle(150% at 50% 50%);
+        opacity: 0;
+    }
+}
+
+/* Animate the existing moon when it becomes the sun */
+.moon.aurora-celestial-morph {
+    animation: auroraCelestialMorph 0.85s ease-in-out;
+}
+
+@keyframes auroraCelestialMorph {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    45% {
+        transform: scale(1.45) rotate(150deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    #auroraSkyTransition.active {
+        animation-duration: 0.2s;
+    }
+
+    .moon.aurora-celestial-morph {
+        animation-duration: 0.2s;
+    }
+}
+/* ===================================
+   PROJECT AURORA - SUNSET MODE
+   =================================== */
+
+/* Sunset button */
+#auroraSunsetSwitch {
+    position: fixed;
+    top: 75px;
+    right: 20px;
+    z-index: 9990;
+
+    padding: 12px 18px;
+    border: 1px solid #f9a8d4;
+    border-radius: 30px;
+
+    background: rgba(91, 40, 91, 0.95);
+    color: #fff0f6;
+
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 0 18px rgba(249, 168, 212, 0.35);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+#auroraSunsetSwitch:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px #f9a8d4;
+}
+
+/* Sunset sky */
+body.aurora-sunset-mode .universe {
+    background:
+        radial-gradient(
+            ellipse at 75% 25%,
+            rgba(255, 210, 135, 0.85),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 20% 45%,
+            rgba(255, 140, 170, 0.65),
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 85% 80%,
+            rgba(119, 76, 160, 0.7),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #f9a8d4 0%,
+            #ffb58a 35%,
+            #ba7bd1 72%,
+            #554078 100%
+        ) !important;
+
+    color: #542b59;
+    transition: background 0.8s ease;
+}
+
+/* Sunset headings */
+body.aurora-sunset-mode .universe h1,
+body.aurora-sunset-mode .universe h2,
+body.aurora-sunset-mode .universe h3 {
+    color: #652e67 !important;
+
+    text-shadow:
+        0 1px 3px rgba(255, 235, 245, 0.8),
+        0 0 12px rgba(255, 190, 210, 0.5) !important;
+}
+
+/* Sunset paragraph text */
+body.aurora-sunset-mode .universe p,
+body.aurora-sunset-mode .universe label {
+    color: #522b58 !important;
+}
+
+/* Sunset buttons */
+body.aurora-sunset-mode .universe button {
+    border-color: rgba(255, 210, 225, 0.8);
+}
+
+/* Show the clouds and sun during sunset too */
+body.aurora-sunset-mode #auroraDaySkyEffects {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Give the clouds a warm evening tint */
+body.aurora-sunset-mode .aurora-cloud {
+    filter: sepia(0.2) saturate(1.15);
+}
+
+/* Turn the sun into a warm sunset glow */
+body.aurora-sunset-mode .aurora-sun {
+    background: radial-gradient(
+        circle at 35% 35%,
+        #fff2c6,
+        #ffbd69 50%,
+        #ff8058 100%
+    );
+
+    box-shadow:
+        0 0 25px rgba(255, 166, 100, 0.85),
+        0 0 60px rgba(255, 112, 100, 0.5);
+}
+
+/* Soft twilight stars */
+body.aurora-sunset-mode #auroraParallaxLayer {
+    opacity: 0.25;
+}
+
+/* Sunset button on smaller screens */
+@media (max-width: 480px) {
+    #auroraSunsetSwitch {
+        top: 70px;
+        right: 10px;
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+}
+/* ==========================================
+   PROJECT AURORA - MOBILE RESPONSIVE DESIGN
+   ========================================== */
+
+/* Prevent unwanted horizontal scrolling */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Make the main universe fit the screen */
+.universe {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* Make headings readable on different screens */
+.universe h1 {
+    font-size: clamp(26px, 6vw, 52px);
+    overflow-wrap: anywhere;
+}
+
+.universe h2 {
+    font-size: clamp(20px, 4.5vw, 32px);
+    overflow-wrap: anywhere;
+}
+
+/* Make text fit smaller screens */
+.universe p {
+    overflow-wrap: anywhere;
+}
+
+/* Make buttons easier to tap */
+button {
+    touch-action: manipulation;
+}
+
+/* Keep message boxes inside the screen */
+#surpriseBox {
+    width: min(90vw, 400px);
+    max-height: 80vh;
+    max-height: 80svh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Make the music player fit smaller screens */
+.music-player {
+    max-width: calc(100vw - 32px);
+    box-sizing: border-box;
+}
+
+/* Adjust the theme buttons on mobile phones */
+@media screen and (max-width: 600px) {
+
+    #auroraModeSwitch,
+    #auroraSunsetSwitch {
+        right: 10px;
+        padding: 9px 12px;
+        font-size: 12px;
+        max-width: calc(50vw - 18px);
+        box-sizing: border-box;
+    }
+
+    #auroraModeSwitch {
+        top: 12px;
+    }
+
+    #auroraSunsetSwitch {
+        top: 58px;
+    }
+
+    /* Keep the welcome screen comfortable on phones */
+    .welcome-screen {
+        padding: 18px;
+    }
+
+    .welcome-screen h1 {
+        font-size: clamp(26px, 8vw, 42px);
+        letter-spacing: 2px;
+    }
+
+    .welcome-screen p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .welcome-screen button {
+        max-width: 100%;
+        white-space: normal;
+    }
+
+    /* Make the secret surprise comfortable to read */
+    #surpriseBox {
+        padding: 25px 18px;
+        border-radius: 18px;
+    }
+
+    #surpriseBox h2 {
+        font-size: 20px;
+    }
+
+    #surpriseMessage {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    /* Make the glowing theme controls easier to tap */
+    #auroraModeSwitch,
+    #auroraSunsetSwitch {
+        min-height: 40px;
+    }
+}
+
+/* Extra adjustments for very narrow phones */
+@media screen and (max-width: 360px) {
+
+    #auroraModeSwitch,
+    #auroraSunsetSwitch {
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .welcome-screen h1 {
+        letter-spacing: 1px;
+    }
+
+    .secret-star-container p {
+        font-size: 12px;
+    }
+}
